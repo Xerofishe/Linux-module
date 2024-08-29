@@ -38,8 +38,8 @@ char *get_task_state(long state) {
 static int __init process_filter_init(void) {
     struct task_struct *task;
     unsigned int process_count = 0;
-    printk(KERN_INFO "process_filter: Module loaded.\n");
-    printk(KERN_INFO "process_filter: Filtering by state: %ld and name: %s\n", state_filter, name_filter);
+    printk(KERN_INFO "Module loaded.\n");
+    printk(KERN_INFO "Filtering by state: %ld and name: %s\n", state_filter, name_filter);
 
     for_each_process(task) {
         if ((state_filter == -1 || task->__state == state_filter) &&
@@ -60,7 +60,7 @@ static void __exit process_filter_exit(void) {
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sanket");
 MODULE_DESCRIPTION("Process enumerator.");
-MODULE_VERSION("0.1");
+MODULE_VERSION("1.0");
 
 module_init(process_filter_init);
 module_exit(process_filter_exit);
